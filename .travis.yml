@@ -20,3 +20,17 @@ after_success:
   - docker push batnasan/multi-nginx ./nginx
   - docker push batnasan/multi-server ./server
   - docker push batnasan/multi-worker ./worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: ap-southeast-2
+  app: multi-docer
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-southeast-2-510871749779
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
