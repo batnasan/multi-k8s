@@ -15,7 +15,7 @@ after_success:
   - docker build -t batnasan/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take thos images and push to docker hub
+  # Take those images and push to docker hub
   - docker push batnasan/multi-client ./client
   - docker push batnasan/multi-nginx ./nginx
   - docker push batnasan/multi-server ./server
