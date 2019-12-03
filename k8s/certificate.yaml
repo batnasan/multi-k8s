@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: multi-k8s-batnasan-com-tls
+spec:
+  secretName: multi-k8s-batnasan-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: multi-k8s.batnasan.com
+  dnsNames:
+    - multi-k8s.batnasan.com
+    - www.multi-k8s.batnasan.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - multi-k8s.batnasan.com
+          - www.multi-k8s.batnasan.com
