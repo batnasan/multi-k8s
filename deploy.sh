@@ -12,5 +12,5 @@ docker push batnasan/multi-worker:$SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=batnasan/multi-server:$SHA
-kubectl set image deployments/client-deployment server=batnasan/multi-client:$SHA
-kubectl set image deployments/worker-deployment server=batnasan/multi-worker:$SHA
+kubectl set image deployments/client-deployment client=batnasan/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=batnasan/multi-worker:$SHA
